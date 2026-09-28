@@ -284,10 +284,7 @@ Ensure your IAM user/role has the required permissions listed above
 - [x] SARIF output for CI/CD
 - [x] Change detection
 - [x] Configuration file support
-- [ ] Azure provider implementation
-- [ ] GCP provider implementation
-- [ ] Terraform state import
-- [ ] Slack/Teams notifications
+
 
 ---
 
