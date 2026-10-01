@@ -1,20 +1,22 @@
-# Cloud NetMapper Configuration
-# Place this file as .cloud-netmapper.yaml in your project directory or home directory
+# Cloud NetMapper configuration
+# Copy to .cloud-netmapper.yaml in the working directory or home directory,
+# or select this file with --config .cloud-netmapper.yaml.example.
 
-# AWS regions to scan
+# --region overrides this list; --all-regions takes precedence over both.
 regions:
   - us-east-1
-  - us-west-2
-  - eu-west-1
+  # - us-west-2
+  # - eu-west-1
 
-# Output settings
 output:
-  # Output format: png, svg, json, csv, markdown, html, sarif
-  format: png
-  # Output directory for generated files
+  # One of: png, svg, html, json, csv, markdown, sarif. Built-in default: png.
+  # HTML avoids Graphviz and the DOT identifier limitation documented in README.md.
+  # Viewing the HTML map requires access to the Cytoscape.js CDN.
+  format: html
+  # Resolved from the process working directory, not from this file's location.
+  # Use a separate directory per account/profile to keep diff baselines distinct.
   directory: ./output
 
-# Security settings
-security:
-  # Minimum severity level to report: low, medium, high, critical
-  severity_threshold: low
+# Logging is configured with --verbosity, not YAML.
+# Security rules are fixed in code. security.severity_threshold is parsed but
+# does not filter findings; security.risky_ports is ignored. See docs/reference.md.
